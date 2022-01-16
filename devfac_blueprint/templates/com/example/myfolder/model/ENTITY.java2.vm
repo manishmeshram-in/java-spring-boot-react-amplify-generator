@@ -1,0 +1,12 @@
+#set($listOfWords = ["one_word","two_word"])
+#set($q = '"')
+#set($queryString = "")
+#foreach($word in $listOfWords)
+  #if( $velocityCount == 1 )
+    #set($queryString = "$q$word$q")
+  #else
+    #set($queryString = "$queryString+$q$word$q")
+  #end
+#end
+
+${queryString}

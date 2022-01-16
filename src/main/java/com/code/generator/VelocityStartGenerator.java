@@ -15,7 +15,7 @@ public class VelocityStartGenerator {
     static String className = "VelocityExample";
     static String message = "Hello World!";
 	static String outputFile = "./devfac_generated/" + className + ".java";
-       
+
     public static void main(String[] args) throws IOException {
 
         VelocityEngine velocityEngine = new VelocityEngine();

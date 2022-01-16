@@ -1,0 +1,104 @@
+{
+    "info": {
+        "sectionPurpose": "Information purpose only, non-configurable",
+        "applicationPurpose": "Microservice/API",
+        "technologyBase": "spring-boot",
+        "note1": "Spring options available at command - spring init --list"
+    },
+    "configuration": {
+        "sectionPurpose": "Configurable settings",
+        "programming": {
+            "language": "Java",
+            "platform": "Java",
+            "tool": "Spring Boot",
+            "cliCommand": "spring init",
+            "dependencies": [
+                "web",
+                "data-jpa",
+                "mysql"
+            ],
+            "applicationName": "my-application"
+        },
+        "database": {
+            "port": 3306,
+            "name": "mysql",
+            "user": "mysql",
+            "password": "password"
+        },
+        "domainModel": [
+            {
+                "objectType": "table",
+                "objectName": "employee",
+                "fields": [
+                    {
+                        "name": "employee_id",
+                        "type": [
+                            "integer",
+                            "4"
+                        ],
+                        "constraints": [
+                            "priamry",
+                            "notNull"
+                        ]
+                    },
+                    {
+                        "name": "employee_code",
+                        "type": [
+                            "integer",
+                            "4"
+                        ],
+                        "constraints": [
+                            "unique",
+                            "notNull"
+                        ]
+                    },
+                    {
+                        "name": "employee_name",
+                        "type": [
+                            "varchar",
+                            "128"
+                        ],
+                        "constraints": [
+                            "notNull"
+                        ]
+                    },
+                    {
+                        "name": "education",
+                        "type": [
+                            "varchar",
+                            "128"
+                        ]
+                    },
+                    {
+                        "name": "address",
+                        "type": [
+                            "varchar",
+                            "256"
+                        ]
+                    },
+                    {
+                        "name": "designation",
+                        "type": [
+                            "varchar",
+                            "128"
+                        ]
+                    },
+                    {
+                        "name": "role",
+                        "type": [
+                            "varchar",
+                            "128"
+                        ]
+                    },
+                    {
+                        "name": "department",
+                        "type": [
+                            "varchar",
+                            "128"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

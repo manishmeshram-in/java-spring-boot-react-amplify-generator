@@ -1,1 +1,1 @@
-# java-spring-boot-react-amplify-generator
+# java-velocity-my-code-generator2
