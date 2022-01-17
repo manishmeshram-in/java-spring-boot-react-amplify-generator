@@ -42,9 +42,8 @@ public class Executer {
 	}
 
 	private static void createSpringApplication(ApplicationBlueprint applicationBlueprint) {
-		//RunCommand.executeSpringInit(applicationBlueprint.getConfiguration().getProgramming());
-		VelocityGenerator.generateCode(applicationBlueprint.getConfiguration().getDomainModel());
+		RunCommand.executeCreateReactApp(applicationBlueprint.getConfiguration().getProgramming());
+		//VelocityGenerator.generateCode(applicationBlueprint.getConfiguration().getDomainModel());
 	}
 
 }
-

@@ -6,6 +6,7 @@
 build
 target
 .mvn
+staging
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -8,16 +8,16 @@
     "configuration": {
         "sectionPurpose": "Configurable settings",
         "programming": {
-            "language": "Java",
-            "platform": "Java",
-            "tool": "Spring Boot",
-            "cliCommand": "spring init",
+            "language": "JavaScript",
+            "platform": "React",
+            "tool": "React",
+            "cliCommand": "npx create-react-app",
             "dependencies": [
                 "web",
                 "data-jpa",
                 "mysql"
             ],
-            "applicationName": "my-application"
+            "applicationName": "myapp1"
         },
         "database": {
             "port": 3306,
