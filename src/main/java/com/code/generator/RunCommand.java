@@ -25,6 +25,7 @@ public class RunCommand {
 	//final static String DIR = "dir";
 	final static String PWD = "pwd";
 	//final static String AMPLIFY_INIT = "amplify init";
+	final static String NPX_CREATE_REACT_APP = "npx create-react-app ";
 	final static String AMPLIFY_INIT = "amplify init --yes --projectName myapp1 --envName dev --defaultEditor Visual Studio Code --appType javascript --framework react --sourceDir src --distributionDir build --buildCommand --buildCommand npm run-script build --startCommand npm run-script start --useProfile true --profileName default";
 	
 	final static String STAGING = "staging";
@@ -36,22 +37,25 @@ public class RunCommand {
 	public static void executeCreateReactApp(Programming programming){
 		
 		String applicationName = programming.getApplicationName();
-		String createReactAppCommand = "npx create-react-app" + SPACE + applicationName;//Use this actual "create react app" command when ready
+		String createReactAppCommand = NPX_CREATE_REACT_APP + applicationName;
 
 		navigateExecute(PWDIR + BACK_SLASH + STAGING, PWD);
 		navigateExecute(PWDIR + BACK_SLASH + STAGING, createReactAppCommand);
 		navigateExecute(PWDIR + BACK_SLASH + STAGING, CD + applicationName);
 		navigateExecute(PWDIR + BACK_SLASH + STAGING + BACK_SLASH + applicationName, PWD);
 		navigateExecute(PWDIR + BACK_SLASH + STAGING + BACK_SLASH + applicationName, AMPLIFY_INIT);
+		
+		//CopyReplace.copyReplace("myapp", "myapp3");
+		CopyReplace.copyReplace("myapp", applicationName);
 	}
 	
 	
 	private static void navigateExecute(String directory, String psCommand) {
 
-		System.out.println("::::::::::::::::::::::::::::::::::::::::::::::::::::::::");
+		System.out.println("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::");
 		System.out.println("56: navigating to: "+directory);
 		System.out.println("56: executing: "+psCommand);
-		System.out.println("::::::::::::::::::::::::::::::::::::::::::::::::::::::::");
+		System.out.println("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::");
 		
 		String executionCommand = POWERSHELL + CD + directory + PSSEPARATE + psCommand;
 		System.out.println("60: executionCommand: "+executionCommand);
