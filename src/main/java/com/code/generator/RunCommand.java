@@ -27,6 +27,7 @@ public class RunCommand {
 	//final static String AMPLIFY_INIT = "amplify init";
 	final static String NPX_CREATE_REACT_APP = "npx create-react-app ";
 	final static String AMPLIFY_INIT = "amplify init --yes --projectName myapp1 --envName dev --defaultEditor Visual Studio Code --appType javascript --framework react --sourceDir src --distributionDir build --buildCommand --buildCommand npm run-script build --startCommand npm run-script start --useProfile true --profileName default";
+	final static String AMPLIFY_ADD_API = "cat APPLICATION_NAME.json | jq -c | amplify add api --headless";
 	
 	final static String STAGING = "staging";
 	
@@ -47,6 +48,11 @@ public class RunCommand {
 		
 		//CopyReplace.copyReplace("myapp", "myapp3");
 		CopyReplace.copyReplace("myapp", applicationName);
+		
+		//String amplifyAddApi = "cat " + applicationName + ".json | jq -c | amplify add api --headless"; 
+		//String amplifyAddApi = AMPLIFY_ADD_API.replaceAll("APPLICATION_NAME", applicationName);
+		//cat myapp2.json | jq -c | amplify add api --headless
+		navigateExecute(PWDIR + BACK_SLASH + STAGING + BACK_SLASH + applicationName, AMPLIFY_ADD_API.replaceAll("APPLICATION_NAME", applicationName));
 	}
 	
 	
