@@ -16,7 +16,7 @@ public class CopyReplace {
 	private static void copyFile(File srcFile, File destFile) throws IOException {
 
 		InputStream oInStream = new FileInputStream(srcFile);
-		OutputStream oOutStream = new FileOutputStream(destFile);
+		OutputStream oOutStream = new FileOutputStream(destFile); 
 
 		// Transfer bytes from in to out
 		byte[] oBytes = new byte[1024];
