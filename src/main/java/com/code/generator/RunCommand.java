@@ -29,6 +29,9 @@ public class RunCommand {
 	final static String AMPLIFY_INIT = "amplify init --yes --projectName myapp1 --envName dev --defaultEditor Visual Studio Code --appType javascript --framework react --sourceDir src --distributionDir build --buildCommand --buildCommand npm run-script build --startCommand npm run-script start --useProfile true --profileName default";
 	final static String AMPLIFY_ADD_API = "cat APPLICATION_NAME.json | jq -c | amplify add api --headless";
 	
+	//amplify push --yes --generateCode true --codeLanguage javascript --fileNamePattern "src/graphql/**/*.js" --generatedFileName "API" --generateDocs true
+	final static String AMPLIFY_PUSH = "amplify push --yes --generateCode true --codeLanguage javascript --fileNamePattern \"src/graphql/**/*.js\" --generatedFileName \"API\" --generateDocs true";
+	
 	final static String STAGING = "staging";
 	
 	final static String FRONT_SLASH = "/";
@@ -53,6 +56,11 @@ public class RunCommand {
 		//String amplifyAddApi = AMPLIFY_ADD_API.replaceAll("APPLICATION_NAME", applicationName);
 		//cat myapp2.json | jq -c | amplify add api --headless
 		navigateExecute(PWDIR + BACK_SLASH + STAGING + BACK_SLASH + applicationName, AMPLIFY_ADD_API.replaceAll("APPLICATION_NAME", applicationName));
+		
+		//amplify push --yes --generateCode true --codeLanguage javascript --fileNamePattern "src/graphql/**/*.js" --generatedFileName "API" --generateDocs true
+		//String AMPLIFY_PUSH = "amplify push --yes --generateCode true --codeLanguage javascript --fileNamePattern \"src/graphql/**/*.js\" --generatedFileName \"API\" --generateDocs true";
+		
+		navigateExecute(PWDIR + BACK_SLASH + STAGING + BACK_SLASH + applicationName, AMPLIFY_PUSH);
 	}
 	
 	

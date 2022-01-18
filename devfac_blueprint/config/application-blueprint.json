@@ -17,7 +17,7 @@
                 "data-jpa",
                 "mysql"
             ],
-            "applicationName": "myapp4"
+            "applicationName": "myapp6"
         },
         "database": {
             "port": 3306,
