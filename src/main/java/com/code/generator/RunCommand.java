@@ -31,12 +31,12 @@ public class RunCommand {
 	
 	//amplify push --yes --generateCode true --codeLanguage javascript --fileNamePattern "src/graphql/**/*.js" --generatedFileName "API" --generateDocs true
 	final static String AMPLIFY_PUSH = "amplify push --yes --generateCode true --codeLanguage javascript --fileNamePattern \"src/graphql/**/*.js\" --generatedFileName \"API\" --generateDocs true";
+	final static String AMPLIFY_CONSOLE_API = "echo GraphQL | amplify console api";
 	
 	final static String STAGING = "staging";
 	
 	final static String FRONT_SLASH = "/";
 	final static String BACK_SLASH = "\\";
-	
 	
 	public static void executeCreateReactApp(Programming programming){
 		
@@ -61,6 +61,8 @@ public class RunCommand {
 		//String AMPLIFY_PUSH = "amplify push --yes --generateCode true --codeLanguage javascript --fileNamePattern \"src/graphql/**/*.js\" --generatedFileName \"API\" --generateDocs true";
 		
 		navigateExecute(PWDIR + BACK_SLASH + STAGING + BACK_SLASH + applicationName, AMPLIFY_PUSH);
+		
+		navigateExecute(PWDIR + BACK_SLASH + STAGING + BACK_SLASH + applicationName, AMPLIFY_CONSOLE_API);
 	}
 	
 	
