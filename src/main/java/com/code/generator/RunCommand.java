@@ -1,5 +1,6 @@
 package com.code.generator;
 
+import java.io.File;
 import java.io.IOException;
 
 import org.apache.commons.exec.CommandLine;
@@ -43,11 +44,11 @@ public class RunCommand {
 		String applicationName = programming.getApplicationName();
 		String createReactAppCommand = NPX_CREATE_REACT_APP + applicationName;
 
-		navigateExecute(PWDIR + BACK_SLASH + STAGING, PWD);
-		navigateExecute(PWDIR + BACK_SLASH + STAGING, createReactAppCommand);
-		navigateExecute(PWDIR + BACK_SLASH + STAGING, CD + applicationName);
-		navigateExecute(PWDIR + BACK_SLASH + STAGING + BACK_SLASH + applicationName, PWD);
-		navigateExecute(PWDIR + BACK_SLASH + STAGING + BACK_SLASH + applicationName, AMPLIFY_INIT);
+		navigateExecuteShell(PWDIR + FRONT_SLASH + STAGING, PWD);
+		navigateExecuteShell(PWDIR + FRONT_SLASH + STAGING, createReactAppCommand);
+		navigateExecuteShell(PWDIR + FRONT_SLASH + STAGING, CD + applicationName);
+		navigateExecuteShell(PWDIR + FRONT_SLASH + STAGING + FRONT_SLASH + applicationName, PWD);
+		navigateExecuteShell(PWDIR + FRONT_SLASH + STAGING + FRONT_SLASH + applicationName, AMPLIFY_INIT);
 		
 		//CopyReplace.copyReplace("myapp", "myapp3");
 		CopyReplace.copyReplace("myapp", applicationName);
@@ -55,14 +56,47 @@ public class RunCommand {
 		//String amplifyAddApi = "cat " + applicationName + ".json | jq -c | amplify add api --headless"; 
 		//String amplifyAddApi = AMPLIFY_ADD_API.replaceAll("APPLICATION_NAME", applicationName);
 		//cat myapp2.json | jq -c | amplify add api --headless
-		navigateExecute(PWDIR + BACK_SLASH + STAGING + BACK_SLASH + applicationName, AMPLIFY_ADD_API.replaceAll("APPLICATION_NAME", applicationName));
+		navigateExecuteShell(PWDIR + FRONT_SLASH + STAGING + FRONT_SLASH + applicationName, AMPLIFY_ADD_API.replaceAll("APPLICATION_NAME", applicationName));
 		
 		//amplify push --yes --generateCode true --codeLanguage javascript --fileNamePattern "src/graphql/**/*.js" --generatedFileName "API" --generateDocs true
 		//String AMPLIFY_PUSH = "amplify push --yes --generateCode true --codeLanguage javascript --fileNamePattern \"src/graphql/**/*.js\" --generatedFileName \"API\" --generateDocs true";
 		
-		navigateExecute(PWDIR + BACK_SLASH + STAGING + BACK_SLASH + applicationName, AMPLIFY_PUSH);
+		navigateExecuteShell(PWDIR + FRONT_SLASH + STAGING + FRONT_SLASH + applicationName, AMPLIFY_PUSH);
 		
-		navigateExecute(PWDIR + BACK_SLASH + STAGING + BACK_SLASH + applicationName, AMPLIFY_CONSOLE_API);
+		navigateExecuteShell(PWDIR + FRONT_SLASH + STAGING + FRONT_SLASH + applicationName, AMPLIFY_CONSOLE_API);
+	}
+	
+	
+	private static void navigateExecuteShell(String directory, String psCommand) {
+
+		System.out.println("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::");
+		System.out.println("56: navigating to: "+directory);
+		System.out.println("56: executing: "+psCommand);
+		System.out.println("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::");
+		
+		String executionCommand =  CD + directory + PSSEPARATE + psCommand;
+		System.out.println("60: executionCommand: "+executionCommand);
+		
+		ProcessBuilder processBuilder = new ProcessBuilder(executionCommand);
+		//processBuilder.directory(new File(System.getProperty("user.home")));
+		//CommandLine cmdLine = CommandLine.parse(executionCommand);
+		//DefaultExecutor executor = new DefaultExecutor();
+		try {
+			//int exitValue = executor.execute(cmdLine);
+			//exitValue = executor.execute(cmdLine1);
+			Process process = processBuilder.start();
+			
+			int exitValue = process.exitValue();
+			
+			System.out.println("::::----::::");
+			System.out.println("exitValue: "+exitValue);
+		} catch (ExecuteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
 	}
 	
 	

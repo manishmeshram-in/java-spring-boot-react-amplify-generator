@@ -10,7 +10,8 @@ import com.google.gson.stream.JsonReader;
 
 public class Executer {
 
-	final static String applicationBlueprintFilePath = "\\devfac_blueprint\\config\\application-blueprint.json";
+	//final static String applicationBlueprintFilePath = "\\devfac_blueprint\\config\\application-blueprint.json";
+	final static String applicationBlueprintFilePath = "/devfac_blueprint/config/application-blueprint.json";
 	
 	public static void main(String args[]) {
 		execute();
