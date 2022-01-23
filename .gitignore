@@ -6,7 +6,14 @@
 build
 target
 .mvn
-staging
+staging/myapp1
+staging/myapp2
+staging/myapp3
+staging/myapp4
+staging/myapp5
+staging/myapp6
+staging/myapp7
+staging/myapp8
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
